@@ -16,16 +16,56 @@ public class Main {
         ** pole salary zmien na BigDecimal
          */
 
+        Employee emp1 = new Employee();
+        emp1.setName("Jan");
+        emp1.setSurname("Kowalski");
+        emp1.setSalary(10_000L);
+
+        Employee emp2 = new Employee();
+        emp2.setName("Jan");
+        emp2.setSurname("Kowalski");
+        emp2.setSalary(10_000L);
+        //System.out.println(emp1.equals(emp2));
+
+        Programmer prog1 = new Programmer();
+        prog1.setName("Tomek");
+        prog1.setSurname("Kowalski");
+        prog1.setSeniorityLevel("Senior");
+        prog1.setBackendLanguage("Java");
+
+        Programmer prog2 = new Programmer();
+        prog2.setName("Tomek");
+        prog2.setSurname("Kowalski");
+        prog2.setSeniorityLevel("Senior");
+        prog2.setBackendLanguage("C++");
+
+        System.out.println(prog1.equals(prog2));
+
+        Employee emp3 = prog1;
+        //Programmer prog3 = emp1; //tak sie nie da!
+        Programmer prog3 = Programmer.from(emp1); //ale mozemy sobie "na piechote" stworzyc/przepisac pola
+
+        System.out.println(emp3.toString());
+
+
+        Cat cat = new Cat("KowalskiKot");
+        Dog dog = new Dog("KowalskiPies");
+
+        Animal animal1 = cat;
+        Animal animal2 = dog;
+        animal1.makeSound();
+
+        //Animal
 
     }
 
     private static void funWithInheritance() {
-        //* Ile jedna klasa moze rozszerzac klas?
-        //* Co jesli klasa nie ma konstruktora domyslnego?
-        //* Czy klasa dziedziczaca ma dostep do pol klasy bazowej?
-        //* Czy moge przypisc obiekt klasy Programmer do zminnej klasy Employee?
-        //* Czy moge przypisc zmienna klasy Employee do obiektu klasy Programmer?
-        //* Co z metodami statycznymi i polami statycznymi?
+        //* Ile jedna klasa moze rozszerzac klas? Jedną
+        //* Co jesli klasa nie ma konstruktora domyslnego? (Java wygeneruje)
+        //* Czy klasa dziedziczaca ma dostep do pol klasy bazowej? Zwykle nie, bo powinny byc prywatne (jak nie sa prywatne to ma dostep)
+        //* Czy moge przypisc obiekt klasy Programmer do zmiennej klasy Employee? tak
+        //* Czy moge przypisc zmienna klasy Employee do obiektu klasy Programmer? nie, bo bedzie brakowalo pol
+        //* Co z metodami statycznymi i polami statycznymi? tutaj skonczylismy
         //* Jak zrobic, zeby obiekty Programmer zwracaly innego toStringa?
         //* Jak zrobic, zeby roczna pensja dla programisty byla podwojna?
         //* Jak stworzyc osobna klase programisty dla programistow Java?
