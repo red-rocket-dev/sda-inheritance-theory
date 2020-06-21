@@ -1,5 +1,7 @@
 package pl.sda;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         // funWithInheritance();
@@ -10,28 +12,31 @@ public class Main {
         2. Utworz klase FullstackProgrammer, ktora bedzie dziedziczyla z klasy JavaProgrammer, powinna dodatkowo:
          - miec pole frontendLanguage (+setter)
          - roczna pensja powinna byc powiekszona DODATKOWO WZGLEDEM PROGRAMISTY JAVA o 300%
-        3. Do jednej z klas dziedziczacej po Employee dopisz toString, tak aby po ich uruchomieniu było widoczne imie, nazwisko i roczna pensja
+        3. Do jednej z klas dziedziczacych po Employee dopisz toString, tak aby po ich uruchomieniu było widoczne imie, nazwisko i roczna pensja
         4. Utworz obiekt każdej klasy i ustaw wynagrodzenia w każdym z nich na 1000, nie zapomnij o ustawieniu imienia i nazwiska
         5. Wypisz wszystkie obiekty na konsole, sprawdz czy zadanie zostalo wykonane prawidlowo
         ** pole salary zmien na BigDecimal
          */
 
+        BigDecimal tenThousands = BigDecimal.valueOf(10_000);
+        BigDecimal oneThousand = BigDecimal.valueOf(1000);
+
         Employee emp1 = new Employee();
         emp1.setName("Jan");
         emp1.setSurname("Kowalski");
-        emp1.setSalary(10_000L);
+        emp1.setSalary(tenThousands);
 
         Employee emp2 = new Employee();
         emp2.setName("Jan");
         emp2.setSurname("Kowalski");
-        emp2.setSalary(10_000L);
+        emp2.setSalary(tenThousands);
         //System.out.println(emp1.equals(emp2));
 
         Programmer prog1 = new Programmer("Java");
         prog1.setName("Tomek");
         prog1.setSurname("Kowalski");
         prog1.setSeniorityLevel("Senior");
-        prog1.setSalary(1000L);
+        prog1.setSalary(oneThousand);
 
         System.out.println(prog1.yearlySalary());
 
@@ -66,6 +71,26 @@ public class Main {
         Employee.printSomething();
         Programmer.printSomething();
 
+
+        System.out.println("------");
+        System.out.println("Zadania");
+        Employee employee = new Employee();
+        employee.setSalary(oneThousand);
+        Accountant accountant = new Accountant();
+        accountant.setYearsServed(4);
+        accountant.setSalary(oneThousand);
+        Programmer programmer = new Programmer();
+        programmer.setSalary(oneThousand);
+        JavaProgrammer java = new JavaProgrammer();
+        java.setSalary(oneThousand);
+        FullstackProgrammer fullstackProgrammer = new FullstackProgrammer();
+        fullstackProgrammer.setFrontendLanguage("JavaScript");
+        fullstackProgrammer.setSalary(oneThousand);
+        System.out.println(employee.yearlySalary());
+        System.out.println(accountant.yearlySalary());
+        System.out.println(programmer);
+        System.out.println(java);
+        System.out.println(fullstackProgrammer);
         //Animal
 
     }

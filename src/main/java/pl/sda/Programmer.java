@@ -1,11 +1,13 @@
 package pl.sda;
 
+import java.math.BigDecimal;
+
 public class Programmer extends Employee {
     private String backendLanguage;
     private String seniorityLevel;
 
     public Programmer(String backendLanguage) {
-        System.out.println("Programmer");
+        //System.out.println("Programmer");
         this.backendLanguage = backendLanguage;
     }
 
@@ -32,24 +34,13 @@ public class Programmer extends Employee {
     }
 
     @Override
-    public Long getSalary() {
-        return 0L;
-    }
-
-    @Override
-    public Long yearlySalary() {
-        System.out.println(getSalary());
-        System.out.println(super.getSalary());
-
-        return super.yearlySalary() * 2;
+    public BigDecimal yearlySalary() {
+        return super.yearlySalary().multiply(BigDecimal.valueOf(2));
     }
 
     @Override
     public String toString() {
-        return "Programmer{" +
-                "backendLanguage='" + backendLanguage + '\'' +
-                ", seniorityLevel='" + seniorityLevel + '\'' +
-                '}';
+        return getName() + " " + getSurname() + " " + yearlySalary();
     }
 
     public static String something() {
