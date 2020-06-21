@@ -3,6 +3,10 @@ package pl.sda;
 import java.util.Objects;
 
 public class Employee {
+    public Employee() {
+        System.out.println("Employee");
+    }
+
     private String name;
     private String surname;
     private Long salary;
@@ -57,5 +61,13 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname);
+    }
+
+    public static String something() {
+        return "employee";
+    }
+
+    public static void printSomething() {
+        System.out.println(something());
     }
 }

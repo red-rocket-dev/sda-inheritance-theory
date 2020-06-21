@@ -4,23 +4,24 @@ public class Programmer extends Employee {
     private String backendLanguage;
     private String seniorityLevel;
 
-    public String getBackendLanguage() {
-        return backendLanguage;
+    public Programmer(String backendLanguage) {
+        System.out.println("Programmer");
+        this.backendLanguage = backendLanguage;
     }
 
+    public Programmer() {
+    }
 
-    public Programmer setBackendLanguage(String backendLanguage) {
-        this.backendLanguage = backendLanguage;
-        return this;
+    public String getBackendLanguage() {
+        return backendLanguage;
     }
 
     public String getSeniorityLevel() {
         return seniorityLevel;
     }
 
-    public Programmer setSeniorityLevel(String seniorityLevel) {
+    public void setSeniorityLevel(String seniorityLevel) {
         this.seniorityLevel = seniorityLevel;
-        return this;
     }
 
     public static Programmer from(Employee emp1) {
@@ -31,10 +32,27 @@ public class Programmer extends Employee {
     }
 
     @Override
+    public Long getSalary() {
+        return 0L;
+    }
+
+    @Override
+    public Long yearlySalary() {
+        System.out.println(getSalary());
+        System.out.println(super.getSalary());
+
+        return super.yearlySalary() * 2;
+    }
+
+    @Override
     public String toString() {
         return "Programmer{" +
                 "backendLanguage='" + backendLanguage + '\'' +
                 ", seniorityLevel='" + seniorityLevel + '\'' +
                 '}';
+    }
+
+    public static String something() {
+        return "programmer";
     }
 }
